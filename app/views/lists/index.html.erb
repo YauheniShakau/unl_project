@@ -1,30 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Lists</h1>
+<h1>Projects</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Position</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @lists.each do |list| %>
-      <tr>
-        <td><%= list.name %></td>
-        <td><%= list.position %></td>
-        <td><%= link_to 'Show', list %></td>
-        <% if list.user == current_user %>
-        <td><%= link_to 'Edit', edit_list_path(list) %></td>
-        <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<% @lists.each do |list| %>
+<div class="link row clearfix">
+	<h2>
+		<%= link_to list.name, list %><br>
+	</h2>
+</div>    
+<% end %>
 
 <br>
 

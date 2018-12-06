@@ -65,4 +65,6 @@ gem 'acts_as_list', '~> 0.9.17'
 gem 'devise', '~> 4.5'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.3'
+gem "cocoon"
+
 

@@ -1,8 +1,12 @@
-<p id="notice"><%= notice %></p>
-
 <div class="page-header h1">
   <%= @list.name %>
 </div>
+
+<% @list.tasks.each do |task| %>
+  <h2>
+   	<%= task.name %><br>
+  </h2>
+<% end %>
 
 <div class="btn ">
     <%= link_to 'Back', lists_path, :class => "btn btn-primary btn-sm" %>

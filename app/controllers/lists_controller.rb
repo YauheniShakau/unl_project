@@ -5,7 +5,7 @@ class ListsController < ApplicationController
   # GET /lists
   # GET /lists.json
   def index
-    @lists = List.sorted
+    @lists = List.all
   end
 
   # GET /lists/1
@@ -15,7 +15,7 @@ class ListsController < ApplicationController
 
   # GET /lists/new
   def new
-    @list = current_user.lists.build
+    @list = current_user.lists.new
   end
 
   # GET /lists/1/edit
@@ -25,7 +25,7 @@ class ListsController < ApplicationController
   # POST /lists
   # POST /lists.json
   def create
-    @list = current_user.lists.build(list_params)
+    @list = current_user.lists.new(list_params)
 
     respond_to do |format|
       if @list.save
@@ -70,6 +70,6 @@ class ListsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def list_params
-      params.require(:list).permit(:name, :position)
+      params.require(:list).permit(:name, :position, tasks_attributes: [:id, :name, :_destroy])
     end
 end
